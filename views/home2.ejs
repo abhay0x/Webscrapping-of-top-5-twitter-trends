@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .class{
+  position: relative;
+  top: 100px;
+  left: 50px;
+    }
+    .text{
+        position: relative;
+        left: 50px;
+    }
+    .h3{
+        position: relative;
+        top: 20px;
+    }
+   
+</style>
+<body>   
+    
+    <button id="trigger-button" style="color: red;">Click here to run the script</button>
+   
+    <h2 class="">These are the most happening topics</h2>
+
+    <ol class="text">
+        <% if (posts.trend1 != null){
+            %>
+            <li><%= posts.trend1 %></li>
+            <%
+        }
+        %>
+    <%  if (posts.trend2 != null){
+        %>
+        <li><%= posts.trend2 %></li>
+        <%
+    }
+    %>
+    <% if (posts.trend3 != null){
+        %>
+        <li><%= posts.trend3 %></li>
+        <%
+    }
+    %>
+   
+    <% if (posts.trend4 != null){
+        %>
+        <li><%= posts.trend4 %></li>
+        <%
+    }
+    %>
+</ol>
+<h3 class="h3">The IP address used for this query was  <b><%= ip %></b></h3> 
+    
+     <h2 class="h3">Here is the JSON extract of this record from the MongoDB</h2> 
+     <div class="text" class="h3" style="width: 200px; height: 100px;"><%= posts %></div>
+
+    <a href="/" class="class"> Click here to run the script Again</a>
+     
+   
+   
+   <script>
+        document.getElementById("trigger-button").addEventListener("click", async () => {
+          try {
+            await fetch("/trigger-trends"); // Trigger the route
+            alert("Function triggered successfully!");
+          } catch (error) {
+            console.error("Error:", error);
+            alert("Failed to trigger the function.");
+          }
+        });
+      </script>
+
+</body>
+</html>

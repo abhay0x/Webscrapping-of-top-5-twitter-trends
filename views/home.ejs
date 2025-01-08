@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>   
+    
+    <a href="/home2"><button id="trigger-button" style="color: red;">Click here to run the script</button>
+     </a>
+
+    <script>
+        document.getElementById("trigger-button").addEventListener("click", async () => {
+          try {
+            await fetch("/trigger-trends"); // Trigger the route
+            alert("Function triggered successfully!");
+          } catch (error) {
+            console.error("Error:", error);
+            alert("Failed to trigger the function.");
+          }
+        });
+      </script>
+
+</body>
+</html>
